@@ -103,3 +103,34 @@ func Test2() {
 	}()
 	<-limit
 }
+
+//
+func Test3() {
+	var wg sync.WaitGroup
+	var limit = make(chan int)
+	wg.Add(1)
+	go func() {
+		result := <-limit
+		fmt.Printf("hello1  %v", result)
+		wg.Done()
+	}()
+	wg.Add(1)
+	go func() {
+		result := <-limit
+		fmt.Printf("hello2  %v", result)
+		wg.Done()
+	}()
+	limit <- 1
+	wg.Wait()
+
+}
+
+//
+func Test4() {s
+	var limit = make(chan int)
+	go func() {
+		fmt.Printf("hello1 \n")
+		time.Sleep(10 * time.Second)
+	}()
+	limit<-1
+}

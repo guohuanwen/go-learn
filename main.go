@@ -1,7 +1,7 @@
 package main
 
 import (
-	_chan "learn/chan"
+	"learn/prime"
 	"log"
 )
 
@@ -16,5 +16,6 @@ func main()  {
 	//发布订阅模型
 	//subscribe.Test()
 	//limitMaxThread.Test()
-	_chan.Test()
+	//_chan.Test4()
+	prime.Test()
 }
